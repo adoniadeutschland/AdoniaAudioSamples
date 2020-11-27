@@ -1,10 +1,12 @@
 {% sw_extends '@Storefront/storefront/utilities/offcanvas.html.twig' %}
 
 {% block utilities_offcanvas_content %}
+{% if page.product.translated.customFields.custom_cd_track01 %}
     {% set audiosampleMediaId = page.product.translated.customFields.custom_cd_track01 %}
     {% set mediaCollection = searchMedia([audiosampleMediaId], context.context) %}
     {% set audiosampleMedia = mediaCollection.get(audiosampleMediaId) %}
     {# {{ dump (audiosampleMedia) }} #}
+    {# Adding Player from https://codepen.io/fgiering/pen/LYRYbvr #}
                 <div>
                     <audio id="audioplayer" controls onended="playNext()">
                         <source src="" type="audio/mp3">
@@ -16,14 +18,14 @@
             <button class="btn btn-secondary" onClick="playThis({{ element.url }}, {{ element.mimeType }})">Track 01</button>  
         {% endif %}
     {% endfor %}
-{% endblock %}
+{% endif %}
 
-
-{# {% block utilities_offcanvas_content %}
-    {% set audiosampleMediaId = page.product.translated.customFields.custom_cd_track01 %}
+{# Single player working: #}
+{% if page.product.translated.customFields.custom_cd_track01 %}
+ {% set audiosampleMediaId = page.product.translated.customFields.custom_cd_track01 %}
     {% set mediaCollection = searchMedia([audiosampleMediaId], context.context) %}
     {% set audiosampleMedia = mediaCollection.get(audiosampleMediaId) %}
-    {{ dump (audiosampleMedia) }}
+    {# {{ dump (audiosampleMedia) }} #}
     {% for element in mediaCollection %}
         {% if element.mediaType.name == 'AUDIO' %}
             <div>
@@ -34,4 +36,5 @@
             </div>
         {% endif %}
     {% endfor %}
-{% endblock %} #}
+{% endif %}
+{% endblock %}
