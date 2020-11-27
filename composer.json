@@ -1,5 +1,5 @@
 {
-  "name": "adonia/AdoniaAudioSamples",
+  "name": "adonia/audio-samples",
   "description": "Plugin for AudioSamples in a product",
   "type": "shopware-platform-plugin",
   "license": "MIT",
