@@ -1,0 +1,34 @@
+{% sw_extends '@Storefront/storefront/page/product-detail/tabs.html.twig' %}
+
+{% block page_product_detail_tabs_navigation_description %}
+  {{ parent() }}
+  {# {{ dump(page.product) }} #}
+  {% if page.product.customFields %}
+  {# TODO: shows even if no Audio Media is attached #}
+  <li class="nav-item">
+    <a class="nav-link product-detail-tab-navigation-link"
+      id="audiosample-tab"
+      data-toggle="tab"
+      data-offcanvas-tabs="true"
+      href="#audiosample-tab-pane"
+      role="tab"
+      aria-controls="audiosample-tab-pane"
+      aria-selected="false">
+      Hörbeispiele
+    </a>
+  </li>
+  {% endif %}
+{% endblock %}
+
+{% block page_product_detail_tabs_content_description %}
+  {{ parent() }}
+  {% if page.product.media %}
+    <div class="tab-pane fade show"
+      id="audiosample-tab-pane"
+      role="tabpanel"
+      aria-labelledby="audiosample-tab">
+      {% sw_include '@AdoniaTemplate/AdoniaTemplate/page/product-detail/audiosample.html.twig'
+      %}
+    </div>
+  {% endif %}
+{% endblock %}

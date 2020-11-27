@@ -1,0 +1,19 @@
+{% sw_extends '@Storefront/storefront/utilities/offcanvas.html.twig' %}
+
+{% block utilities_offcanvas_content %}
+    {% set audiosampleMediaId = page.product.translated.customFields.custom_cd_track01 %}
+    {% set mediaCollection = searchMedia([audiosampleMediaId], context.context) %}
+    {% set audiosampleMedia = mediaCollection.get(audiosampleMediaId) %}
+    {# {{ dump (audiosampleMedia) }} #}
+                <div>
+                    <audio id="audioplayer" controls onended="playNext()">
+                        <source src="" type="audio/mp3">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+    {% for element in mediaCollection %}
+        {% if element.mediaType.name == 'AUDIO' %}
+            <button class="btn btn-secondary" onClick="playThis({{ element.url }}, {{ element.mimeType }})">Track 01</button>  
+        {% endif %}
+    {% endfor %}
+{% endblock %}
