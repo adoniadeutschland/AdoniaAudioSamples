@@ -3,19 +3,19 @@
 {% block page_product_detail_tabs_navigation_description %}
   {{ parent() }}
   {% if page.product.customFields %}
-  {# TODO: shows even if no Audio Media is attached #}
-  <li class="nav-item">
-    <a class="nav-link product-detail-tab-navigation-link"
-      id="audiosample-tab"
-      data-toggle="tab"
-      data-offcanvas-tabs="true"
-      href="#audiosample-tab-pane"
-      role="tab"
-      aria-controls="audiosample-tab-pane"
-      aria-selected="false">
-      Hörbeispiele
-    </a>
-  </li>
+    {# TODO: shows even if no Audio Media is attached #}
+    <li class="nav-item">
+      <a class="nav-link product-detail-tab-navigation-link"
+        id="audiosample-tab"
+        data-toggle="tab"
+        data-offcanvas-tabs="true"
+        href="#audiosample-tab-pane"
+        role="tab"
+        aria-controls="audiosample-tab-pane"
+        aria-selected="false">
+        Hörbeispiele
+      </a>
+    </li>
   {% endif %}
 {% endblock %}
 

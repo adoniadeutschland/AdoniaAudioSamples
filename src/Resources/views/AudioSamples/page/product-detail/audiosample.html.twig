@@ -1,40 +1,52 @@
 {% sw_extends '@Storefront/storefront/utilities/offcanvas.html.twig' %}
 
 {% block utilities_offcanvas_content %}
-{% if page.product.translated.customFields.custom_cd_track01 %}
-    {% set audiosampleMediaId = page.product.translated.customFields.custom_cd_track01 %}
-    {% set mediaCollection = searchMedia([audiosampleMediaId], context.context) %}
-    {% set audiosampleMedia = mediaCollection.get(audiosampleMediaId) %}
-    {# {{ dump (audiosampleMedia) }} #}
+  {% if page.product.translated.customFields.custom_cd_enable %}
     {# Adding Player from https://codepen.io/fgiering/pen/LYRYbvr #}
-                <div>
-                    <audio id="audioplayer" controls onended="playNext()">
-                        <source src="" type="audio/mp3">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-    {% for element in mediaCollection %}
-        {% if element.mediaType.name == 'AUDIO' %}
-            <button class="btn btn-secondary" onClick="playThis({{ element.url }}, {{ element.mimeType }})">Track 01</button>  
-        {% endif %}
+    <div>
+      <audio id="audioplayer" controls onended="playNext()">
+        <source src="" type="audio/mp3" />Your browser does not support the
+        audio element.
+      </audio>
+    </div>
+    {% set audiosampleMediaIds = [] %}
+    {% for key, id in page.product.translated.customFields %}
+      {% if 'custom_cd_track' in key and 'name' not in key %}
+        {% set audiosampleMediaIds = audiosampleMediaIds|merge([id]) %}
+      {% endif %}
     {% endfor %}
-{% endif %}
 
-{# Single player working: #}
-{% if page.product.translated.customFields.custom_cd_track01 %}
- {% set audiosampleMediaId = page.product.translated.customFields.custom_cd_track01 %}
-    {% set mediaCollection = searchMedia([audiosampleMediaId], context.context) %}
-    {% set audiosampleMedia = mediaCollection.get(audiosampleMediaId) %}
-    {# {{ dump (audiosampleMedia) }} #}
-    {% for element in mediaCollection %}
-        {% if element.mediaType.name == 'AUDIO' %}
-            <div>
-                <audio controls>
-                    <source src="{{ element.url }}" type="{{ element.mimeType }}" >
-                    Your browser does not support the audio element. 
-                </audio>
-            </div>
-        {% endif %}
+    {% set mediaCollection =
+      searchMedia(audiosampleMediaIds, context.context)
+    %}
+    {# {{ dump(mediaCollection) }} #}
+    {% for media in mediaCollection %}
+      {% set audiosampleMedia = mediaCollection.get(media.id) %}
+      <button class="btn btn-secondary"
+        onClick="playThis('{{ audiosampleMedia.url }}')">
+        {{ audiosampleMedia.filename }}
+      </button>
     {% endfor %}
-{% endif %}
+  {% endif %}
+
+  {# Single player working: #}
+  {# {% if page.product.translated.customFields.custom_cd_track01 %}
+    {% set audiosampleMediaId =
+      page.product.translated.customFields.custom_cd_track01
+    %}
+    {% set mediaCollection =
+      searchMedia([audiosampleMediaId], context.context)
+    %}
+    {% set audiosampleMedia = mediaCollection.get(audiosampleMediaId) %}
+    {% for element in mediaCollection %}
+      {% if element.mediaType.name == 'AUDIO' %}
+        <div>
+          <audio controls>
+            <source src="{{ element.url }}" type="{{ element.mimeType }}" />Your
+            browser does not support the audio element.
+          </audio>
+        </div>
+      {% endif %}
+    {% endfor %}
+  {% endif %} #}
 {% endblock %}
