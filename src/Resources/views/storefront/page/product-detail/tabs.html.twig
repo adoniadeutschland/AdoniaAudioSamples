@@ -2,7 +2,7 @@
 
 {% block page_product_detail_tabs_navigation_description %}
   {{ parent() }}
-  {% if page.product.customFields %}
+  {% if page.product.translated.customFields.custom_cd_enable %}
     {# TODO: shows even if no Audio Media is attached #}
     <li class="nav-item">
       <a class="nav-link product-detail-tab-navigation-link"
@@ -21,13 +21,12 @@
 
 {% block page_product_detail_tabs_content_description %}
   {{ parent() }}
-  {% if page.product.media %}
+  {% if page.product.translated.customFields.custom_cd_enable %}
     <div class="tab-pane fade show"
       id="audiosample-tab-pane"
       role="tabpanel"
       aria-labelledby="audiosample-tab">
-      {% sw_include '@AudioSAmples/AudioSamples/page/product-detail/audiosample.html.twig'
-      %}
+      {% sw_include '@AudioSAmples/AudioSamples/page/product-detail/audiosample.html.twig'      %}
     </div>
   {% endif %}
 {% endblock %}
