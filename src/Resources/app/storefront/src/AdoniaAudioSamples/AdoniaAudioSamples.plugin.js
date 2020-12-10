@@ -8,7 +8,7 @@ export default class AdoniaAudioSamples extends Plugin {
     var isPlaying = 0;
     player.setAttribute(
       "src",
-      playlistButtons[isPlaying].getAttribute("data-url").url
+      playlistButtons[isPlaying].getAttribute("data-url")
       // TODO: Set Attribute to source-Element not audio
     );
 
