@@ -20,7 +20,7 @@
     <div class="btn-group-vertical">
     {% for media in mediaCollection %}
       {% set audiosampleMedia = mediaCollection.get(media.id) %}
-      <button class="btn btn-secondary playlistButton"
+      <button class="btn btn-secondary playlistButton" data-index="{{ loop.index }}"
         data-url="{{ audiosampleMedia.url }}">
         {{ audiosampleMedia.filename }}
       </button>

@@ -5,22 +5,35 @@ export default class AdoniaAudioSamples extends Plugin {
     var i = 0;
     const player = document.getElementById("audioplayer");
     const playlistButtons = document.querySelectorAll(".playlistButton");
-
-    function playNext() {
-      if (i < playlistButtons.length - 1) {
-        i++;
-        playThis();
-        // how to say which track is playing?
-        console.log("next");
-      } else {
-        i = 0;
-      }
-    }
+    var isPlaying = 0;
+    player.setAttribute(
+      "src",
+      playlistButtons[isPlaying].getAttribute("data-url").url
+      // TODO: Set Attribute to source-Element not audio
+    );
 
     function playThis() {
       var url = this.getAttribute("data-url");
+      var index = this.getAttribute("data-index");
+      // Add Speaker-Icon to Class paying
+      playlistButtons.forEach(function (el) {
+        el.classList.remove("active");
+      });
+      this.classList.add("active");
       player.setAttribute("src", url);
+      // TODO: Set Attribute to source-Element not audio
       player.play();
+      isPlaying = index;
+    }
+
+    function playNext() {
+      if (isPlaying <= playlistButtons.length) {
+        playThis.call(playlistButtons[isPlaying]);
+        isPlaying++;
+      } else {
+        isPlaying = 0;
+        playThis.call(playlistButtons[isPlaying]);
+      }
     }
 
     player.addEventListener("ended", playNext);
