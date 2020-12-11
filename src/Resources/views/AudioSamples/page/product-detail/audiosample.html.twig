@@ -1,34 +1,37 @@
-{% sw_extends '@Storefront/storefront/utilities/offcanvas.html.twig' %}
+{# {% sw_extends '@Storefront/storefront/utilities/offcanvas.html.twig' %} #}
 
-{% block utilities_offcanvas_content %}
-  {% if page.product.translated.customFields.custom_cd_enable %}
-    <div class="btn-group-vertical col-md-6">
-      <audio id="audioplayer" src="" controls>
-        Your browser does not support the audio element.
-      </audio>
-      {% set audiosampleMediaIds = [] %}
-      {% set audiosampleMediaNames = [] %}
-      {% for key, id in page.product.translated.customFields %}
-        {% if 'custom_cd_track' in key and 'name' not in key %}
-          {% set audiosampleMediaIds = audiosampleMediaIds|merge([id]) %}
-        {% endif %}
-        {% if 'custom_cd_track' in key and 'name' in key %}
-          {% set audiosampleMediaNames = audiosampleMediaNames|merge([id]) %}
-        {% endif %}
-      {% endfor %}
+{# {% block utilities_offcanvas_content %} #}
+{% if page.product.translated.customFields.custom_cd_enable %}
+  <div class="h3 product-detail-description-title">
+    Hörbeispiele
+  </div>
+  <div class="btn-group-vertical col-md-6">
+    <audio id="audioplayer" src="" controls>
+      Your browser does not support the audio element.
+    </audio>
+    {% set audiosampleMediaIds = [] %}
+    {% set audiosampleMediaNames = [] %}
+    {% for key, id in page.product.translated.customFields %}
+      {% if 'custom_cd_track' in key and 'name' not in key %}
+        {% set audiosampleMediaIds = audiosampleMediaIds|merge([id]) %}
+      {% endif %}
+      {% if 'custom_cd_track' in key and 'name' in key %}
+        {% set audiosampleMediaNames = audiosampleMediaNames|merge([id]) %}
+      {% endif %}
+    {% endfor %}
 
-      {% set mediaCollection =
-        searchMedia(audiosampleMediaIds, context.context)
-      %}
-      {% for media in mediaCollection %}
-        {% set audiosampleMedia = mediaCollection.get(media.id) %}
-        <button class="btn btn-primary playlistButton"
-          data-index="{{ loop.index0 }}"
-          data-url="{{ audiosampleMedia.url }}">
-          {{ loop.index }}
-          {{ audiosampleMediaNames[loop.index0]|trans|sw_sanitize }}
-        </button>
-      {% endfor %}
-    </div>
-  {% endif %}
-{% endblock %}
+    {% set mediaCollection =
+      searchMedia(audiosampleMediaIds, context.context)
+    %}
+    {% for media in mediaCollection %}
+      {% set audiosampleMedia = mediaCollection.get(media.id) %}
+      <button class="btn btn-primary playlistButton"
+        data-index="{{ loop.index0 }}"
+        data-url="{{ audiosampleMedia.url }}">
+        {{ loop.index }}
+        {{ audiosampleMediaNames[loop.index0]|trans|sw_sanitize }}
+      </button>
+    {% endfor %}
+  </div>
+{% endif %}
+{# {% endblock %} #}
