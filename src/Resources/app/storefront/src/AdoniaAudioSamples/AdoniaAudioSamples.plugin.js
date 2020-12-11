@@ -2,18 +2,17 @@ import Plugin from "src/plugin-system/plugin.class";
 
 export default class AdoniaAudioSamples extends Plugin {
   init() {
-    var i = 0;
     const player = document.getElementById("audioplayer");
     const playlistButtons = document.querySelectorAll(".playlistButton");
-    var isPlaying = 0;
+    let isPlaying = 0;
     player.setAttribute(
       "src",
       playlistButtons[isPlaying].getAttribute("data-url")
     );
 
     function playThis() {
-      var url = this.getAttribute("data-url");
-      var index = this.getAttribute("data-index");
+      let url = this.getAttribute("data-url");
+      let index = this.getAttribute("data-index");
       player.setAttribute("src", url);
       player.play();
       showActive();
