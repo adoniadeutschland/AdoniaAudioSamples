@@ -1,5 +1,4 @@
 import Plugin from "src/plugin-system/plugin.class";
-
 export default class AdoniaAudioSamples extends Plugin {
   init() {
     const player = document.getElementById("audioplayer");
