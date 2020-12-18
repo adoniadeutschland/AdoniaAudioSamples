@@ -11,13 +11,9 @@
         Your browser does not support the audio element.
       </audio>
       {% set audiosampleMediaIds = [] %}
-      {% set audiosampleMediaNames = [] %}
       {% for key, id in page.product.translated.customFields %}
-        {% if 'custom_cd_track' in key and 'name' not in key %}
+        {% if 'custom_cd_track' in key %}
           {% set audiosampleMediaIds = audiosampleMediaIds|merge([id]) %}
-        {% endif %}
-        {% if 'custom_cd_track' in key and 'name' in key %}
-          {% set audiosampleMediaNames = audiosampleMediaNames|merge([id]) %}
         {% endif %}
       {% endfor %}
 
@@ -30,7 +26,9 @@
           data-index="{{ loop.index0 }}"
           data-url="{{ audiosampleMedia.url }}">
           {{ loop.index }}
-          {{ audiosampleMediaNames[loop.index0]|trans|sw_sanitize }}
+          {{
+            audiosampleMedia.customFields.custom_media_titel|trans|sw_sanitize
+          }}
         </button>
       {% endfor %}
     </div>
