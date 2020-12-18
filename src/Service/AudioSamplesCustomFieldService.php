@@ -43,6 +43,36 @@ class SwagCustomFieldSetService
                         ],
                     ],
                 ],
+                [
+                    'name' => 'audioSampleName',
+                    'global' => true,
+                    'config' => [
+                        'label' => [
+                            'de-DE' => 'AudioSamples Plugin Zusatzfeld Set',
+                            'en-GB' => 'AudioSamples plugin custom field set',
+                        ],
+                    ],
+                    'relations' => [
+                        [
+                            'entityName' => 'media',
+                        ],
+                    ],
+                    'customFields' => [
+                        [
+                            'name' => 'audiosample_track_01',
+                            'type' => CustomFieldTypes::TEXT,
+                            'config' => [
+                                'label' => [
+                                    'de-DE' => 'AudioSample Name',
+                                    'en-GB' => 'audioSample name',
+                                ],
+                                'componentName' => 'sw-text-field',
+                                'customFieldType' => 'text',
+                                'customFieldPosition' => 1,
+                            ],
+                        ],
+                    ],
+                ],
             ],
             $context
         );
