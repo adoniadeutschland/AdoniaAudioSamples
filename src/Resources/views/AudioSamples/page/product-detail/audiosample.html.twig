@@ -1,7 +1,7 @@
 {# {% sw_extends '@Storefront/storefront/utilities/offcanvas.html.twig' %} #}
 
 {# {% block utilities_offcanvas_content %} #}
-{% if page.product.translated.customFields.custom_cd_enable %}
+{% if page.product.translated.customFields.custom_audiosample_enabled %}
   <div class="h3 product-detail-description-title">
     Hörbeispiele
   </div>
@@ -12,7 +12,7 @@
       </audio>
       {% set audiosampleMediaIds = [] %}
       {% for key, id in page.product.translated.customFields %}
-        {% if 'custom_cd_track' in key %}
+        {% if 'custom_audiosample_track' in key %}
           {% set audiosampleMediaIds = audiosampleMediaIds|merge([id]) %}
         {% endif %}
       {% endfor %}
@@ -26,9 +26,7 @@
           data-index="{{ loop.index0 }}"
           data-url="{{ audiosampleMedia.url }}">
           {{ loop.index }}
-          {{
-            audiosampleMedia.customFields.custom_media_titel|trans|sw_sanitize
-          }}
+          {{ audiosampleMedia.translated.title|trans|sw_sanitize }}
         </button>
       {% endfor %}
     </div>
