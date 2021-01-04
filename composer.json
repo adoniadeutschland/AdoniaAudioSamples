@@ -1,6 +1,7 @@
 {
   "name": "adonia/audio-samples",
   "description": "Plugin for AudioSamples in a product",
+  "version": "1.0.0",
   "type": "shopware-platform-plugin",
   "license": "MIT",
   "autoload": {
