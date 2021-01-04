@@ -26,7 +26,11 @@
           data-index="{{ loop.index0 }}"
           data-url="{{ audiosampleMedia.url }}">
           {{ loop.index }}
-          {{ audiosampleMedia.translated.title|trans|sw_sanitize }}
+          {% if audiosampleMedia.translated.title %}
+            {{ audiosampleMedia.translated.title|trans|sw_sanitize }}
+          {% else %}
+            {{ audiosampleMedia.fileName|trans|sw_sanitize }}
+          {% endif %}
         </button>
       {% endfor %}
     </div>

@@ -1,6 +1,5 @@
 # Installation:
-folgende Felder müssen angelegt werden:
-
+folgende Felder werden bei der Installation angelegt:
 
 ## CustomFields:
 * custom_audiosample_enabled
@@ -9,4 +8,4 @@ folgende Felder müssen angelegt werden:
 ...
 
 ## Medien
-Die Medien müssen mit einem "Titel" versehen werden.
+Die Medien können mit einem "Titel" versehen werden.
