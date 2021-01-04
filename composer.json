@@ -4,6 +4,15 @@
   "version": "1.0.0",
   "type": "shopware-platform-plugin",
   "license": "MIT",
+  "authors": [
+    {
+      "name": "Fabian Giering"
+    }
+  ],
+  "require": {
+    "shopware/core": "6.3.*",
+    "shopware/storefront": "6.3.*"
+  },
   "autoload": {
     "psr-4": {
       "AdoniaAudioSamples\\": "src/"
