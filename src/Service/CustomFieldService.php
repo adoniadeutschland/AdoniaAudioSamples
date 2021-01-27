@@ -351,6 +351,76 @@ class CustomFieldService
                                 'customFieldPosition' => 21,
                             ],
                         ],
+                        [
+                            'id' => Uuid::randomHex(),
+                            'name' => 'custom_audiosample_track_21',
+                            'type' => CustomFieldTypes::TEXT,
+                            'config' => [
+                                'label' => [
+                                    'de-DE' => 'Audio 21',
+                                    'en-GB' => 'Audio 21',
+                                ],
+                                'componentName' => 'sw-media-field',
+                                'customFieldType' => CustomFieldTypes::MEDIA,
+                                'customFieldPosition' => 22,
+                            ],
+                        ],
+                        [
+                            'id' => Uuid::randomHex(),
+                            'name' => 'custom_audiosample_track_22',
+                            'type' => CustomFieldTypes::TEXT,
+                            'config' => [
+                                'label' => [
+                                    'de-DE' => 'Audio 22',
+                                    'en-GB' => 'Audio 22',
+                                ],
+                                'componentName' => 'sw-media-field',
+                                'customFieldType' => CustomFieldTypes::MEDIA,
+                                'customFieldPosition' => 23,
+                            ],
+                        ],
+                        [
+                            'id' => Uuid::randomHex(),
+                            'name' => 'custom_audiosample_track_23',
+                            'type' => CustomFieldTypes::TEXT,
+                            'config' => [
+                                'label' => [
+                                    'de-DE' => 'Audio 23',
+                                    'en-GB' => 'Audio 23',
+                                ],
+                                'componentName' => 'sw-media-field',
+                                'customFieldType' => CustomFieldTypes::MEDIA,
+                                'customFieldPosition' => 24,
+                            ],
+                        ],
+                        [
+                            'id' => Uuid::randomHex(),
+                            'name' => 'custom_audiosample_track_24',
+                            'type' => CustomFieldTypes::TEXT,
+                            'config' => [
+                                'label' => [
+                                    'de-DE' => 'Audio 24',
+                                    'en-GB' => 'Audio 24',
+                                ],
+                                'componentName' => 'sw-media-field',
+                                'customFieldType' => CustomFieldTypes::MEDIA,
+                                'customFieldPosition' => 25,
+                            ],
+                        ],
+                        [
+                            'id' => Uuid::randomHex(),
+                            'name' => 'custom_audiosample_track_25',
+                            'type' => CustomFieldTypes::TEXT,
+                            'config' => [
+                                'label' => [
+                                    'de-DE' => 'Audio 25',
+                                    'en-GB' => 'Audio 25',
+                                ],
+                                'componentName' => 'sw-media-field',
+                                'customFieldType' => CustomFieldTypes::MEDIA,
+                                'customFieldPosition' => 26,
+                            ],
+                        ],
                     ],
                 ],
             ],
