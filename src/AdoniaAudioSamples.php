@@ -30,4 +30,15 @@ class AdoniaAudioSamples extends Plugin
 
         $customFieldService->createCustomFields($installContext->getContext());
     }
+
+    public function uninstall(UninstallContext $context): void
+    {
+        parent::uninstall($context);
+
+        $connection = $this->container->get(Connection::class);
+
+        $connection->executeUpdate(
+            'DELETE FROM custom_field_set WHERE custom_field_set.name = "audioSamples"'
+        );
+    }
 }
