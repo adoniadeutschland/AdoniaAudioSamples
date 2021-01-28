@@ -2,8 +2,10 @@
 
 namespace AdoniaAudioSamples;
 
+use Doctrine\DBAL\Connection;
 use Shopware\Core\Framework\Plugin;
 use Shopware\Core\Framework\Plugin\Context\InstallContext;
+use Shopware\Core\Framework\Plugin\Context\UninstallContext;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use AdoniaAudioSamples\Service\CustomFieldService;
 
