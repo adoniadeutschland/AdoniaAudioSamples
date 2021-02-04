@@ -6,7 +6,8 @@
   "license": "MIT",
   "authors": [
     {
-      "name": "Fabian Giering"
+      "name": "Fabian Giering",
+      "homepage": "https://www.adonia.de"
     }
   ],
   "require": {
