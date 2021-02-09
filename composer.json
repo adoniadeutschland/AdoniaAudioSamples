@@ -21,7 +21,7 @@
   },
   "extra": {
     "shopware-plugin-class": "AdoniaAudioSamples\\AdoniaAudioSamples",
-    "plugin-icon": "Resources/config/plugin.png",
+    "plugin-icon": "src/Resources/config/plugin.png",
     "label": {
       "de-DE": "AdoniaAudioSamples",
       "en-GB": "AdoniaAudioSamples"
