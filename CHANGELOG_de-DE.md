@@ -5,3 +5,10 @@
 # 1.0.3
 
 - some changes
+
+# 1.0.4
+
+- fix headline spacing
+- add changelog
+- fix translation bug
+- add plugin logo

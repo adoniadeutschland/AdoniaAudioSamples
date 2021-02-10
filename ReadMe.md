@@ -16,3 +16,4 @@ Die Medien können mit einem "Titel" versehen werden.
 # TODO:
 
 - Add: config.xml (https://docs.shopware.com/en/shopware-platform-dev-en/references-internals/plugins/plugin-config?category=shopware-platform-dev-en/references-internals/plugins)
+- (when possible see shopware roadmap) tag media as "in use" in the mediapanel
