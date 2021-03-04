@@ -12,3 +12,7 @@
 - add changelog
 - fix translation bug
 - add plugin logo
+
+# 1.0.5
+
+- fix hide downloadbutton in player
