@@ -16,3 +16,7 @@
 # 1.0.5
 
 - fix hide downloadbutton in player
+
+# 1.0.6
+
+- Shopware 6.4 Support
