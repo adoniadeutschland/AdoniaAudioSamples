@@ -72,6 +72,7 @@ class CustomFieldService
                                     'de-DE' => 'Hörbeispiele im Produkt anzeigen',
                                     'en-GB' => 'display the audiosamples in this product',
                                 ],
+                                'type' => 'switch',
                                 'componentName' => 'sw-field',
                                 'customFieldType' => CustomFieldTypes::SWITCH,
                                 'customFieldPosition' => 1,

@@ -20,3 +20,7 @@
 # 1.0.6
 
 - Shopware 6.4 Support
+
+# 1.0.6
+
+- Fixed Active-Switch and Label
