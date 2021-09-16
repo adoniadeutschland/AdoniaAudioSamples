@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace AdoniaAudioSamples\Service;
 
@@ -60,13 +62,17 @@ class CustomFieldService
                         [
                             'id' => Uuid::randomHex(),
                             'name' => 'custom_audiosample_enabled',
-                            'type' => CustomFieldTypes::SWITCH,
+                            'type' => CustomFieldTypes::BOOL,
                             'config' => [
                                 'label' => [
                                     'de-DE' => 'Hörbeispiele Anzeigen',
                                     'en-GB' => 'display audiosamples',
                                 ],
-                                'componentName' => 'sw-switch-field',
+                                'helpText' => [
+                                    'de-DE' => 'Hörbeispiele im Produkt anzeigen',
+                                    'en-GB' => 'display the audiosamples in this product',
+                                ],
+                                'componentName' => 'sw-field',
                                 'customFieldType' => CustomFieldTypes::SWITCH,
                                 'customFieldPosition' => 1,
                             ],
