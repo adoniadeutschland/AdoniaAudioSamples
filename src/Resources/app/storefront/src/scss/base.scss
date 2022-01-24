@@ -1,8 +1,16 @@
+:root {
+  --plyr-color-main: #00628b;
+  --plyr-audio-controls-background: #efece9;
+}
+.playerContainer {
+  width: 100%;
+}
+
 #audioplayer {
-    display: block;
-    width: 100%;
+  display: block;
+  width: 100%;
 }
 
 .playlistButton {
-    text-align: left;
+  text-align: left;
 }

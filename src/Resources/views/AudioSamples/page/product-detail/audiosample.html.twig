@@ -1,33 +1,33 @@
 <div class="h3 product-detail-description-title">
-  Hörbeispiele
+	Hörbeispiele
 </div>
 <div class="row product-detail-content">
-  <div class="btn-group-vertical col-md-6">
-    <audio id="audioplayer" src="" controls controlsList="nodownload">
-      Your browser does not support the audio element.
-    </audio>
-    {% set audiosampleMediaIds = [] %}
-    {% for key, id in page.product.translated.customFields %}
-      {% if 'custom_audiosample_track' in key %}
-        {% set audiosampleMediaIds = audiosampleMediaIds|merge([id]) %}
-      {% endif %}
-    {% endfor %}
+	<div class="btn-group-vertical col-md-10 col-lg-6">
+		<div class="playerContainer">
+			<audio id="audioplayer" src="" controls controlslist="nodownload" data-plyr-config='{ "settings": ["captions", "quality", "loop"] }'>
+				Your browser does not support the audio element.
+			</audio>
+		</div>
+		{% set audiosampleMediaIds = [] %}
+		{% for key, id in page.product.translated.customFields %}
+			{% if 'custom_audiosample_track' in key %}
+				{% set audiosampleMediaIds = audiosampleMediaIds|merge([id]) %}
+			{% endif %}
+		{% endfor %}
 
-    {% set mediaCollection =
+		{% set mediaCollection =
       searchMedia(audiosampleMediaIds, context.context)
     %}
-    {% for media in mediaCollection %}
-      {% set audiosampleMedia = mediaCollection.get(media.id) %}
-      <button class="btn btn-primary playlistButton"
-        data-index="{{ loop.index0 }}"
-        data-url="{{ audiosampleMedia.url }}">
-        {{ loop.index }}
-        {% if audiosampleMedia.translated.title %}
-          {{ audiosampleMedia.translated.title|sw_sanitize }}
-        {% else %}
-          {{ audiosampleMedia.fileName|sw_sanitize }}
-        {% endif %}
-      </button>
-    {% endfor %}
-  </div>
+		{% for media in mediaCollection %}
+			{% set audiosampleMedia = mediaCollection.get(media.id) %}
+			<button class="btn btn-primary playlistButton" data-index="{{ loop.index0 }}" data-url="{{ audiosampleMedia.url }}">
+				{{ loop.index }}
+				{% if audiosampleMedia.translated.title %}
+					{{ audiosampleMedia.translated.title|sw_sanitize }}
+				{% else %}
+					{{ audiosampleMedia.fileName|sw_sanitize }}
+				{% endif %}
+			</button>
+		{% endfor %}
+	</div>
 </div>
