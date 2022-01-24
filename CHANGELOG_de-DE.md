@@ -24,3 +24,7 @@
 # 1.0.6
 
 - Fixed Active-Switch and Label
+
+# 1.1.0
+
+- add plyr for custom player design
