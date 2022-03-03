@@ -1,5 +1,7 @@
 # Adonia Audio Samples
 
+A Shopware 6 PLugin for adding Audio Samples to products
+
 ## Installation:
 
 folgende Felder werden bei der Installation angelegt:
