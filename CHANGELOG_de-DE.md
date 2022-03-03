@@ -28,3 +28,7 @@
 # 1.1.0
 
 - add plyr for custom player design
+
+# 1.1.1
+
+- load player only on productpage with samples
