@@ -3,8 +3,10 @@
 
 {% block base_body_script %}
 	{{ parent() }}
-	<script src="https://cdn.plyr.io/3.6.12/plyr.js"></script>
-	<script>
-		const player = new Plyr('#audioplayer');
-	</script>
+	{% if page.product.translated.customFields.custom_audiosample_enabled %}
+		<script src="https://cdn.plyr.io/3.6.12/plyr.js"></script>
+		<script>
+			const player = new Plyr('#audioplayer');
+		</script>
+	{% endif %}
 {% endblock %}

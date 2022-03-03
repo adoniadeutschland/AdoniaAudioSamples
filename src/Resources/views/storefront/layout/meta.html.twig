@@ -3,5 +3,7 @@
 
 {% block layout_head_stylesheet %}
 	{{ parent() }}
-	<link rel="stylesheet" href="https://cdn.plyr.io/3.6.12/plyr.css"/>
+	{% if page.product.translated.customFields.custom_audiosample_enabled %}
+		<link rel="stylesheet" href="https://cdn.plyr.io/3.6.12/plyr.css"/>
+	{% endif %}
 {% endblock %}
