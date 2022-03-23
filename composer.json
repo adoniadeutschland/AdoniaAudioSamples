@@ -25,6 +25,10 @@
     "label": {
       "de-DE": "AdoniaAudioSamples",
       "en-GB": "AdoniaAudioSamples"
+    },
+    "description": {
+      "de-DE": "Plugin um Hörproben bei Produktseiten anzuzeigen",
+      "en-GB": "Plugin to display audio samples on productpages"
     }
   }
 }
