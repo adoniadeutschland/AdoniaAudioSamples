@@ -32,3 +32,8 @@
 # 1.1.1
 
 - load player only on productpage with samples
+
+# 1.1.2
+
+- add speaker-icon to active track
+- refactoring
