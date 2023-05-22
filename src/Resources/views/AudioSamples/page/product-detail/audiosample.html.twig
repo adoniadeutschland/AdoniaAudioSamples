@@ -27,6 +27,7 @@
 				{% else %}
 					{{ audiosampleMedia.fileName|sw_sanitize }}
 				{% endif %}
+				<img src="{{ asset('bundles/adoniaaudiosamples/volume-control-full-1.svg', 'asset') }}" alt="speaker icon" hidden>
 			</button>
 		{% endfor %}
 	</div>

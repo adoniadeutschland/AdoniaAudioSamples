@@ -1,45 +1,50 @@
 import Plugin from "src/plugin-system/plugin.class";
 export default class AdoniaAudioSamples extends Plugin {
+  constructor() {
+    super();
+    this.player = document.getElementById("audioplayer");
+    this.playlistButtons = document.querySelectorAll(".playlistButton");
+    this.isPlaying = 0;
+  }
+
   init() {
-    const player = document.getElementById("audioplayer");
-    const playlistButtons = document.querySelectorAll(".playlistButton");
-    let isPlaying = 0;
-    player.setAttribute(
+    this.player.setAttribute(
       "src",
-      playlistButtons[isPlaying].getAttribute("data-url")
+      this.playlistButtons[this.isPlaying].getAttribute("data-url")
     );
 
-    function playThis() {
-      let url = this.getAttribute("data-url");
-      let index = this.getAttribute("data-index");
-      player.setAttribute("src", url);
-      player.play();
-      showActive();
-      isPlaying = index;
-    }
+    const playThis = (button) => {
+      const url = button.getAttribute("data-url");
+      const index = button.getAttribute("data-index");
+      this.player.setAttribute("src", url);
+      this.player.play();
+      this.showActive();
+      this.isPlaying = index;
+    };
 
-    function playNext() {
-      isPlaying++;
-      if (isPlaying < playlistButtons.length) {
-        playThis.call(playlistButtons[isPlaying]);
+    const playNext = () => {
+      this.isPlaying++;
+      if (this.isPlaying < this.playlistButtons.length) {
+        playThis(this.playlistButtons[this.isPlaying]);
       } else {
-        isPlaying = 0;
-        playThis.call(playlistButtons[isPlaying]);
+        this.isPlaying = 0;
+        playThis(this.playlistButtons[this.isPlaying]);
       }
-    }
+    };
 
-    function showActive() {
-      playlistButtons.forEach(function (el) {
-        el.classList.remove("active");
+
+    const showActive = () => {
+      this.playlistButtons.forEach((button) => {
+        button.classList.remove("active");
       });
-      playlistButtons[isPlaying].classList.add("active");
+      this.playlistButtons[this.isPlaying].classList.add("active");
       // TODO: Add Speaker-Icon to Class paying
-    }
+    };
 
-    player.addEventListener("ended", playNext);
-    player.addEventListener("play", showActive);
-    playlistButtons.forEach(function (button) {
-      button.addEventListener("click", playThis);
+    this.player.addEventListener("ended", playNext);
+    this.player.addEventListener("play", showActive);
+    this.playlistButtons.forEach((button) => {
+      button.addEventListener("click", () => playThis(button));
     });
   }
 }

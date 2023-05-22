@@ -13,4 +13,12 @@
 
 .playlistButton {
   text-align: left;
+  display: flex;
+  justify-content: space-between;
+  &.active > img {
+    display: inline !important;
+  }
+  img {
+    filter: brightness(0) invert(1);
+  }
 }
