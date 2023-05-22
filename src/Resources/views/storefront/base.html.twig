@@ -4,7 +4,7 @@
 {% block base_body_script %}
 	{{ parent() }}
 	{% if page.product.translated.customFields.custom_audiosample_enabled %}
-		<script src="https://cdn.plyr.io/3.6.12/plyr.js"></script>
+		<script src="{{ asset('bundles/adoniaaudiosamples/plyr.js', 'asset') }}"></script>
 		<script>
 			const player = new Plyr('#audioplayer');
 		</script>

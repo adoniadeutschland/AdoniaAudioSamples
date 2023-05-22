@@ -37,7 +37,7 @@ export default class AdoniaAudioSamples extends Plugin {
       this.playlistButtons.forEach((button) => {
         button.classList.remove("active");
       });
-      this.playlistButtons[this.isPlaying].classList.add("active").add('speaker-icon');
+      this.playlistButtons[this.isPlaying].classList.add("active");
       // TODO: Add Speaker-Icon to Class paying
     };
 
