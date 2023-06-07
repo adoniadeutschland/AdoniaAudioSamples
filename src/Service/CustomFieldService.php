@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace AdoniaAudioSamples\Service;
 
 use Shopware\Core\Framework\Context;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\Uuid\Uuid;
 use Shopware\Core\System\CustomField\CustomFieldTypes;
 use Shopware\Core\System\SalesChannel\SalesChannelDefinition;
@@ -18,18 +18,18 @@ class CustomFieldService
      */
     protected $container;
     /**
-     * @var EntityRepositoryInterface
+     * @var EntityRepository
      */
     protected $entityRepository;
 
     /**
      * CustomFieldService constructor.
      * @param ContainerInterface $container
-     * @param EntityRepositoryInterface $entityRepository
+     * @param EntityRepository $entityRepository
      */
     public function __construct(
         ContainerInterface $container,
-        EntityRepositoryInterface $entityRepository
+        EntityRepository $entityRepository
     ) {
         $this->container = $container;
         $this->entityRepository = $entityRepository;
