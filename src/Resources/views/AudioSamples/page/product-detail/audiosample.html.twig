@@ -14,10 +14,9 @@
 				{% set audiosampleMediaIds = audiosampleMediaIds|merge([id]) %}
 			{% endif %}
 		{% endfor %}
-
 		{% set mediaCollection =
       searchMedia(audiosampleMediaIds, context.context)
-    %}
+	    %}
 		{% for media in mediaCollection %}
 			{% set audiosampleMedia = mediaCollection.get(media.id) %}
 			<button class="btn btn-primary playlistButton" data-index="{{ loop.index0 }}" data-url="{{ audiosampleMedia.url }}">
