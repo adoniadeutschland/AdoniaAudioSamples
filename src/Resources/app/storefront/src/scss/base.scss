@@ -17,6 +17,10 @@
   text-align: left;
   display: flex;
   justify-content: space-between;
+  color: #fff;
+  :hover {
+    color: #fff;
+  }
   &.active > img {
     display: inline !important;
   }
