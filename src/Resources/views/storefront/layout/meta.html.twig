@@ -13,8 +13,5 @@
 	{{ parent() }}
 	{% if page.product.translated.customFields.custom_audiosample_enabled %}
 		<script type="text/javascript" src="{{ asset('bundles/adoniaaudiosamples/plyr.js', 'asset') }}"></script>
-		<script type="text/javascript">
-			const player = new Plyr('#audioplayer');
-		</script>
 	{% endif %}
 {% endblock %}

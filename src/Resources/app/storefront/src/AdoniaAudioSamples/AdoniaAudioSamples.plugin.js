@@ -1,10 +1,13 @@
 import Plugin from "src/plugin-system/plugin.class";
+
+const player = new Plyr('#audioplayer');
 export default class AdoniaAudioSamples extends Plugin {
   constructor() {
     super();
     this.player = document.getElementById("audioplayer");
     this.playlistButtons = document.querySelectorAll(".playlistButton");
     this.isPlaying = 0;
+
   }
 
   init() {
@@ -13,6 +16,8 @@ export default class AdoniaAudioSamples extends Plugin {
       this.playlistButtons[this.isPlaying].getAttribute("data-url")
     );
 
+
+    console.log('here');
     const playThis = (button) => {
       const url = button.getAttribute("data-url");
       const index = button.getAttribute("data-index");
