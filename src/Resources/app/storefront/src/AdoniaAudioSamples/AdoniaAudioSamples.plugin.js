@@ -16,7 +16,6 @@ export default class AdoniaAudioSamples extends Plugin {
     );
 
 
-    console.log('here');
     const playThis = (button) => {
       const url = button.getAttribute("data-url");
       const index = button.getAttribute("data-index");
@@ -26,7 +25,7 @@ export default class AdoniaAudioSamples extends Plugin {
       this.isPlaying = index;
     };
 
-    const playNext = () => {
+    this.playNext = () => {
       this.isPlaying++;
       if (this.isPlaying < this.playlistButtons.length) {
         playThis(this.playlistButtons[this.isPlaying]);
@@ -37,16 +36,15 @@ export default class AdoniaAudioSamples extends Plugin {
     };
 
 
-    const showActive = () => {
+    this.showActive = () => {
       this.playlistButtons.forEach((button) => {
         button.classList.remove("active");
       });
       this.playlistButtons[this.isPlaying].classList.add("active");
       // TODO: Add Speaker-Icon to Class paying
     };
-
-    this.player.addEventListener("ended", playNext);
-    this.player.addEventListener("play", showActive);
+    this.player.addEventListener("ended", this.playNext);
+    this.player.addEventListener("play", this.showActive);
     this.playlistButtons.forEach((button) => {
       button.addEventListener("click", () => playThis(button));
     });
