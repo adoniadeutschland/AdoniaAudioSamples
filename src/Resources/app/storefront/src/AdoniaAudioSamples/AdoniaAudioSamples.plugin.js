@@ -16,7 +16,7 @@ export default class AdoniaAudioSamples extends Plugin {
     );
 
 
-    const playThis = (button) => {
+    this.playThis = (button) => {
       const url = button.getAttribute("data-url");
       const index = button.getAttribute("data-index");
       this.player.setAttribute("src", url);
@@ -28,10 +28,10 @@ export default class AdoniaAudioSamples extends Plugin {
     this.playNext = () => {
       this.isPlaying++;
       if (this.isPlaying < this.playlistButtons.length) {
-        playThis(this.playlistButtons[this.isPlaying]);
+        this.playThis(this.playlistButtons[this.isPlaying]);
       } else {
         this.isPlaying = 0;
-        playThis(this.playlistButtons[this.isPlaying]);
+        this.playThis(this.playlistButtons[this.isPlaying]);
       }
     };
 
@@ -46,7 +46,7 @@ export default class AdoniaAudioSamples extends Plugin {
     this.player.addEventListener("ended", this.playNext);
     this.player.addEventListener("play", this.showActive);
     this.playlistButtons.forEach((button) => {
-      button.addEventListener("click", () => playThis(button));
+      button.addEventListener("click", () => this.playThis(button));
     });
   }
 }
