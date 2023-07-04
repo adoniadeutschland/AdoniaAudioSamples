@@ -6,6 +6,9 @@
 }
 .playerContainer {
   width: 100%;
+  .plyr--full-ui {
+    border-radius: 1rem 0 0 0;
+  }
 }
 
 #audioplayer {
@@ -26,5 +29,8 @@
   }
   img {
     filter: brightness(0) invert(1);
+  }
+  &:last-of-type {
+    border-radius: 0 0 1rem 0;
   }
 }
