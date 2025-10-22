@@ -26,7 +26,7 @@ class AdoniaAudioSamples extends Plugin
 
         $connection = $this->container->get(Connection::class);
 
-        $connection->executeUpdate(
+        $connection->executeStatement(
             'DELETE FROM custom_field_set WHERE custom_field_set.name = "audioSamples"'
         );
     }
