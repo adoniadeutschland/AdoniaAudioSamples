@@ -1,9 +1,14 @@
 :root {
   --plyr-color-main: #00628b;
   --plyr-audio-controls-background: #efece9;
+  --bs-btn-color: #fff;
+  --bs-btn-hover-color: #fff;
 }
 .playerContainer {
   width: 100%;
+  .plyr--full-ui {
+    border-radius: 1rem 0 0 0;
+  }
 }
 
 #audioplayer {
@@ -11,14 +16,22 @@
   width: 100%;
 }
 
-.playlistButton {
+.btn.btn-primary.playlistButton {
   text-align: left;
   display: flex;
   justify-content: space-between;
+  color: #fff;
+  border-radius: 0 0 0 0;
+  :hover {
+    color: #fff;
+  }
   &.active > img {
     display: inline !important;
   }
   img {
     filter: brightness(0) invert(1);
+  }
+  &:last-of-type {
+    border-radius: 0 0 1rem 0;
   }
 }

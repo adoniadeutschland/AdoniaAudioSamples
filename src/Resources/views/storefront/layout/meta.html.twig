@@ -7,3 +7,11 @@
 		<link rel="stylesheet" href="{{ asset('bundles/adoniaaudiosamples/plyr.css', 'asset') }}"/>
 	{% endif %}
 {% endblock %}
+
+
+{% block layout_head_javascript_router %}
+	{{ parent() }}
+	{% if page.product.translated.customFields.custom_audiosample_enabled %}
+		<script type="text/javascript" src="{{ asset('bundles/adoniaaudiosamples/plyr.js', 'asset') }}"></script>
+	{% endif %}
+{% endblock %}

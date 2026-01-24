@@ -1,19 +1,22 @@
 import Plugin from "src/plugin-system/plugin.class";
+
 export default class AdoniaAudioSamples extends Plugin {
-  constructor() {
-    super();
-    this.player = document.getElementById("audioplayer");
-    this.playlistButtons = document.querySelectorAll(".playlistButton");
-    this.isPlaying = 0;
+  constructor(...args) {
+    super(...args);
   }
 
   init() {
+    const player = new Plyr('#audioplayer');
+    this.player = document.getElementById("audioplayer");
+    this.playlistButtons = document.querySelectorAll(".playlistButton");
+    this.isPlaying = 0;
     this.player.setAttribute(
       "src",
       this.playlistButtons[this.isPlaying].getAttribute("data-url")
     );
 
-    const playThis = (button) => {
+
+    this.playThis = (button) => {
       const url = button.getAttribute("data-url");
       const index = button.getAttribute("data-index");
       this.player.setAttribute("src", url);
@@ -22,29 +25,28 @@ export default class AdoniaAudioSamples extends Plugin {
       this.isPlaying = index;
     };
 
-    const playNext = () => {
+    this.playNext = () => {
       this.isPlaying++;
       if (this.isPlaying < this.playlistButtons.length) {
-        playThis(this.playlistButtons[this.isPlaying]);
+        this.playThis(this.playlistButtons[this.isPlaying]);
       } else {
         this.isPlaying = 0;
-        playThis(this.playlistButtons[this.isPlaying]);
+        this.playThis(this.playlistButtons[this.isPlaying]);
       }
     };
 
 
-    const showActive = () => {
+    this.showActive = () => {
       this.playlistButtons.forEach((button) => {
         button.classList.remove("active");
       });
       this.playlistButtons[this.isPlaying].classList.add("active");
       // TODO: Add Speaker-Icon to Class paying
     };
-
-    this.player.addEventListener("ended", playNext);
-    this.player.addEventListener("play", showActive);
+    this.player.addEventListener("ended", this.playNext);
+    this.player.addEventListener("play", this.showActive);
     this.playlistButtons.forEach((button) => {
-      button.addEventListener("click", () => playThis(button));
+      button.addEventListener("click", () => this.playThis(button));
     });
   }
 }

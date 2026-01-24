@@ -2,6 +2,8 @@
 
 A Shopware 6 Plugin for adding Audio Samples to products.
 
+Demo: https://shop.adonia.de/Album-Hiob/136230199
+
 ## Installation:
 
 folgende Felder werden bei der Installation angelegt:
