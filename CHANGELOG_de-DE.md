@@ -37,3 +37,8 @@
 
 - add speaker-icon to active track
 - refactoring
+
+# 1.2.0
+
+- add shopware 6.5 supprt
+- fixed player

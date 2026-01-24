@@ -1,18 +1,16 @@
 {% sw_extends '@Storefront/storefront/page/product-detail/tabs.html.twig' %}
 
 {% block page_product_detail_tabs_content %}
-  {{ parent() }}
-  {% if page.product.translated.customFields.custom_audiosample_enabled %}
-    <div class="cms-block pt-3">
-      <div class="cms-block-container">
-        <div class="cms-block-container-row row cms-row">
-          <div class="col-12">
-            <template audiosample-plugin></template>
-            {% sw_include '@AudioSamples/AudioSamples/page/product-detail/audiosample.html.twig'
-            %}
-          </div>
-        </div>
-      </div>
-    </div>
-  {% endif %}
+	{{ parent() }}
+	{% if page.product.translated.customFields.custom_audiosample_enabled %}
+		<div class="cms-block pt-3">
+			<div class="cms-block-container">
+				<div class="cms-block-container-row row cms-row">
+					<div class="col-12">
+						{% sw_include '@AudioSamples/AudioSamples/page/product-detail/audiosample.html.twig'     %}
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endif %}
 {% endblock %}
