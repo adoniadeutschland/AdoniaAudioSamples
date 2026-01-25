@@ -3,8 +3,8 @@ import AdoniaAudioSamples from "./AdoniaAudioSamples/AdoniaAudioSamples.plugin";
 const PluginManager = window.PluginManager;
 PluginManager.register(
   "AdoniaAudioSamples",
-  AdoniaAudioSamples,
-  "[audiosample-plugin]"
+  () => import("./AdoniaAudioSamples/AdoniaAudioSamples.plugin"),
+  "[audiosample-plugin]",
 );
 
 if (module.hot) {
