@@ -1,0 +1,14 @@
+{% sw_extends '@Storefront/storefront/element/cms-element-product-description-reviews.html.twig' %}
+
+{% block element_product_description_reviews_tabs_content %}
+	{{ parent() }}
+	<div class="cms-block pt-3">
+		<div class="cms-block-container">
+			<div class="cms-block-container-row row cms-row">
+				<div class="col-12">
+					{% sw_include '@AudioSamples/AudioSamples/page/product-detail/audiosample.html.twig'     %}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
