@@ -1,13 +1,13 @@
-{% sw_extends '@Storefront/storefront/page/product-detail/tabs.html.twig' %}
+{% sw_extends '@Storefront/storefront/element/cms-element-product-description-reviews.html.twig' %}
 
-{% block page_product_detail_tabs_content %}
+{% block element_product_description_reviews_tabs_content %}
 	{{ parent() }}
 	{% if page.product.translated.customFields.custom_audiosample_enabled %}
 		<div class="cms-block pt-3">
 			<div class="cms-block-container">
 				<div class="cms-block-container-row row cms-row">
 					<div class="col-12">
-						{% sw_include '@AudioSamples/AudioSamples/page/product-detail/audiosample.html.twig'     %}
+						{% sw_include '@AudioSamples/AudioSamples/element/audiosample.html.twig'     %}
 					</div>
 				</div>
 			</div>
